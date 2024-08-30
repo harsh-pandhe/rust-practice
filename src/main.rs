@@ -1,28 +1,39 @@
 fn main() {
-    let sentence: String = String::from("the quick brown fox jumps over the lazy dog");
-    println!("{}", sentence);
-
-    let first_word: String = get_first_word(sentence);
-    let a: i32 = 1000;
-    for _i in 0..a {
-        println!("Harsh was here!");
-    }
-    println!("First Word is: {}", first_word);
-    let sum: i32 = do_sum(10, 20);
-    print!("Sum is: {}", sum);
+    stack_fn();
+    heap_fn();
+    update_fn();
 }
 
-fn get_first_word(sentence: String) -> String {
-    let mut ans: String = String::from("");
-    for char in sentence.chars() {
-        ans.push_str(char.to_string().as_str());
-        if char == ' ' {
-            break;
-        }
-    }
-    return ans;
+fn stack_fn() {
+    let x = 5;
+    let y = x;
+    println!("Stack function: x = {}, y = {}\n", x, y);
 }
 
-fn do_sum(i: i32, j: i32) -> i32 {
-    return i + j;
+fn heap_fn() {
+    let s1 = String::from("Hello");
+    let s2 = String::from("World");
+    let combined = format!("{} {}", s1, s2);
+    println!("Heap function: Combined String is {}\n", combined);
+}
+
+fn update_fn() {
+    let mut s = String::from("Initial String");
+    println!("Before update: {}", s);
+    println!(
+        "Capacity: {}, Length: {}, Pointer: {}",
+        s.capacity(),
+        s.len(),
+        s.as_ptr() as usize
+    );
+
+    for _ in 0..100 {
+        s.push_str(" and some additional text");
+        println!(
+            "Capacity: {}, Length: {}, Pointer: {}",
+            s.capacity(),
+            s.len(),
+            s.as_ptr() as usize
+        );
+    }
 }
