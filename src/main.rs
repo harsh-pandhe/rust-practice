@@ -14,13 +14,27 @@ fn takes_ownership(some_string: String) {
 
  */
 
+// fn main() {
+//     let my_string = String::from("Hello, world!");
+//     let my_string = takes_ownership(my_string);
+//     println!("{}", my_string);
+// }
+
+// fn takes_ownership(some_string: String) -> String {
+//     println!("{}", some_string);
+//     return some_string; // This will return the value of some_string to the caller
+// }
+
 fn main() {
     let my_string = String::from("Hello, world!");
-    let my_string = takes_ownership(my_string);
-    println!("{}", my_string);
+    let my_string_02 = takes_ownership(my_string);
+    println!("{}", my_string_02);
+    // let mut my_string = String::from("Hello, world!");
+    // let my_string = takes_ownership(my_string);
+    // println!("{}", my_string);
 }
 
 fn takes_ownership(some_string: String) -> String {
     println!("{}", some_string);
-    return some_string; // This will return the value of some_string to the caller
+    return some_string;
 }
