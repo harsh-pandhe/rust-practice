@@ -1,17 +1,18 @@
 fn main() {
     let s1 = String::from("hello");
-    takes_ownership(&s1); // s1 is borrowed
-    println!("{}", s1); // s1 is borrowed, so it can be used here
+    // s1.push_str(", world!"); // error: cannot borrow `s1` as mutable, as it is not declared as mutable
+    let mut s2 = String::from("hello");
+    s2.push_str(", world!");
 
-    let s2 = &s1;
-    let s3 = &s1;
-    let s4 = &s1;
+    println!("s1: {}", s1);
+    println!("s2: {}", s2);
 
-    println!("{}, {}, {}", s2, s3, s4);
-    println!("{}", s1); // s1 is borrowed, so it can be used here
+    let mut s3 = String::from("hello");
+    update_str(&mut s3);
+
+    println!("s3: {}", s3);
 }
 
-fn takes_ownership(s: &String) {
-    // s is a reference to a String
-    println!("{}", s);
+fn update_str(s: &mut String) {
+    s.push_str(", world!");
 }
