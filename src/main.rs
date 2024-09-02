@@ -1,28 +1,13 @@
-struct Rectangle {
-    width: u32,
-    height: u32,
-}
-
-impl Rectangle {
-    fn area(&self) -> u32 {
-        return self.width * self.height;
-    }
-    fn perimeter(&self) -> u32 {
-        return 2 * (self.width + self.height);
-    }
+#[derive(Debug)]
+enum Direction {
+    Up,
+    Down,
+    Left,
+    Right,
 }
 
 fn main() {
-    let rect1 = Rectangle {
-        width: 30,
-        height: 50,
-    };
-    println!(
-        "The area of the rectangle is {} square pixels.",
-        rect1.area()
-    );
-    println!(
-        "The perimeter of the rectangle is {} pixels.",
-        rect1.perimeter()
-    );
+    let direction = Direction::Up;
+    println!("Direction: {:?}", direction);
 }
+ 
