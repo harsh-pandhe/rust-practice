@@ -6,10 +6,14 @@ enum Result<A, B> {
 }
 
 fn main() {
-    fs::read_to_string("src/main.rs").map(|contents| {
-        println!("{}", contents);
-    })
-    .map_err(|err| {
-        eprintln!("Error: {}", err);
-    });
+    let res = fs::read_to_string("src/main.rs");
+
+        match res {
+            Ok(content) => {
+                println!("{}", content);
+        }
+        Err(err) => {
+            println!("Error: {}", err);
+        }
+    }
 }
