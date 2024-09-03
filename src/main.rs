@@ -1,13 +1,17 @@
-use std::fs;
+fn find_first_a(s: &str) -> Result<usize, String> {
+    for(index, character) in s.chars().enumerate() {
+        if character == 'a' {
+            return Ok(index);
+        }
+    }
+    return Err("No 'a' found".to_string());
+}
 
 fn main() {
-    let res = fs::read_to_string("src/main.rs");
-        match res {
-            Ok(content) => {
-                println!("{}", content);
-        }
-        Err(err) => {
-            println!("Error: {}", err);
-        }
+    let s = "harsh";
+    let res = find_first_a(s);
+    match res {
+        Ok(index) => println!("Found 'a' at index {}", index),
+        Err(message) => println!("{}", message),
     }
 }
