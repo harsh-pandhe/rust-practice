@@ -1,7 +1,15 @@
-use rand::{thread_rng, Rng};
-
 fn main() {
-    let mut rng = thread_rng();
-    let random_number :u32 = rng.gen();
-    println!("Random number: {}", random_number);
+    let value = is_even(6);
+    if value == true {
+        println!("Even");
+    } else {
+        println!("Odd");
+    }
+}
+
+fn is_even(n:i32) -> bool {
+    if n % 2 == 0 {
+        return true;
+    }
+    return false;
 }
