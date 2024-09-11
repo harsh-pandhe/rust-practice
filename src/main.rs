@@ -1,15 +1,15 @@
 fn main() {
-    let value = is_even(6);
-    if value == true {
-        println!("Even");
-    } else {
-        println!("Odd");
-    }
+    let n = 10;
+    let result = fib(n);
+    println!("Fibonacci number at position {} is {}", n, result);
 }
 
-fn is_even(n:i32) -> bool {
-    if n % 2 == 0 {
-        return true;
+fn fib (n: i32) -> i32 {
+    if n == 0 {
+        return 0;
+    } else if n == 1 {
+        return 1;
+    } else {
+        return fib(n - 1) + fib(n - 2);
     }
-    return false;
 }
